@@ -131,7 +131,7 @@ async def ingest_file(file: UploadFile = File(...), detect_relations: bool = Tru
     Upload a PDF or text file. Saves temporarily, parses, builds graph.
     """
     start = time.time()
-    tmp_path = os.path.join(tempfile.gettempdir(), file.filename or "upload.tmp")
+    tmp_path = os.path.join(tempfile.gettempdir(), file.filename)
     try:
         contents = await file.read()
         with open(tmp_path, "wb") as f:
